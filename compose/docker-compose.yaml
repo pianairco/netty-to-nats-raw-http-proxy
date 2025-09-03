@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  nats:
+    image: nats:latest
+    container_name: nats
+    ports:
+      - "4222:4222"   # client connections
+      - "6222:6222"   # route connections (for clustering)
+      - "8222:8222"   # monitoring (HTTP)
+    command: >
+      -js                  
+      -p 4222
+      -m 8222      
+      -sd /data/jetstream
+    volumes:
+      - ./nats/data:/data/jetstream         # persist JetStream data

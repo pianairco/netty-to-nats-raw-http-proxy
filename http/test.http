@@ -1,0 +1,9 @@
+GET http://localhost:8080/api/v2/say-hello?name=ali
+
+###
+POST http://localhost:8080/api/v11/say-hello?name=ali
+Content-Type: application/json
+
+{
+  "name": "ali"
+}
